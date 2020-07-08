@@ -21,11 +21,13 @@ export const InputBox = styled.input`
   &:focus + label {
     font-size: small;
     transform: translateY(-15px);
+    color: ${({ theme }) => theme.primaryColor1};
   }
 
   &:not(:placeholder-shown) + label {
     font-size: small;
     transform: translateY(-15px);
+    color: ${({ theme }) => theme.primaryColor1};
   }
 `;
 
@@ -37,4 +39,5 @@ export const InputLabel = styled.label`
   transition: 0.2s;
   background-color: white;
   pointer-events: none;
+  color: black;
 `;

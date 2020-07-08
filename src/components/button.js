@@ -6,8 +6,9 @@ const Button = styled.button`
   border-radius: 8px;
   cursor: pointer;
   border: none;
-  background-color: lightred;
+  background-color: ${({ theme }) => theme.primaryColor1};
   transition: 0.2s;
+  color: white;
 
   &:hover {
     transform: scale(1.03);

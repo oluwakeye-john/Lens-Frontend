@@ -13,5 +13,5 @@ export const Card = styled.div`
 export const CardHeading = styled.h2`
   text-align: center;
   margin-bottom: 2rem;
-  font-family: cursive;
+  font-family: arial;
 `;

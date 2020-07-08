@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Card, CardHeading } from "./card";
-import { Input, InputBox, InputLabel } from "./input";
-import { RightButton } from "./button";
-import { TextMuted } from "./text";
+import { Card, CardHeading } from "../components/card";
+import { Input, InputBox, InputLabel } from "../components/input";
+import { RightButton } from "../components/button";
+import { TextMuted, ErrorMessage } from "../components/text";
 
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
 `;
 
 const Register = ({ history }) => {
@@ -40,7 +36,7 @@ const Register = ({ history }) => {
           setErrorMessage(resp.msg);
         } else {
           setErrorMessage("");
-          history.push("/home");
+          history.push("/");
         }
       })
       .catch((err) => {
@@ -66,9 +62,11 @@ const Register = ({ history }) => {
               placeholder=" "
               required
               name="password"
+              minLength="8"
             />
             <InputLabel>Password</InputLabel>
           </Input>
+          {/* //for server side error logging */}
           <ErrorMessage>{errorMessage}</ErrorMessage>
           <RightButton type="submit">Register</RightButton>
         </form>

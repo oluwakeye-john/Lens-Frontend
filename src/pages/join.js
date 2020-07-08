@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Card, CardHeading } from "./card";
-import { Input, InputBox, InputLabel } from "./input";
-import Button from "./button";
+import { Card, CardHeading } from "../components/card";
+import { Input, InputBox, InputLabel } from "../components/input";
+import Button from "../components/button";
 
 const JoinContainer = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const Join = () => {
               Do Not Connect My Audio
             </CardCheck>
             <CardCheck>
-              <input type="checkbox" name="mute-audio" />
+              <input type="checkbox" name="mute-video" />
               Turn off my video
             </CardCheck>
           </CardExtra>

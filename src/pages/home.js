@@ -20,17 +20,25 @@ const HomeItem = styled(Link)`
   }
   cursor: pointer;
   text-decoration: none;
+
+  span {
+    transition: 0.3s;
+  }
+
+  &:hover span {
+    transform: rotate(90deg);
+  }
 `;
 
 const HomeItemImage = styled.div`
-  background-color: #5555ff;
+  background-color: ${({ theme }) => theme.primaryColor1};
   padding: 1.5rem 2.5rem;
   border-radius: 25px;
   color: white;
 `;
 
 const HomeItemImage2 = styled(HomeItemImage)`
-  background-color: #ff7700;
+  background-color: ${({ theme }) => theme.primaryColor2};
 `;
 
 const HomeItemText = styled.h4`
@@ -50,7 +58,7 @@ const Home = () => {
       </HomeItem>
       <HomeItem to="/join">
         <HomeItemImage2>
-          <span className="fas fa-plus fa-2x" />
+          <span className="fas fa-plus fa-2x  " />
           <HomeItemText>Join</HomeItemText>
         </HomeItemImage2>
       </HomeItem>
