@@ -26,7 +26,7 @@ const DashboardItem = styled(Link)`
   }
 
   &:hover span {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 `;
 

@@ -6,7 +6,7 @@ import { Input, InputBox, InputLabel } from "../components/input";
 import { RightButton } from "../components/button";
 import { TextMuted, ErrorMessage } from "../components/text";
 
-const LoginContainer = styled.div`
+const RegisterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ const Register = ({ history }) => {
       });
   };
   return (
-    <LoginContainer>
+    <RegisterContainer>
       <Card>
         <form onSubmit={handleRegister}>
           <CardHeading>Register</CardHeading>
@@ -74,7 +74,7 @@ const Register = ({ history }) => {
           <TextMuted>Already have an account? Login</TextMuted>
         </Link>
       </Card>
-    </LoginContainer>
+    </RegisterContainer>
   );
 };
 

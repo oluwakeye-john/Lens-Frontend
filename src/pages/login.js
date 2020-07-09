@@ -21,8 +21,8 @@ const Login = ({ history, updateUser, user }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const { name, email, password } = e.target;
-    console.log(name.value, email.value);
+    const { email, password } = e.target;
+    console.log(email.value, password.value);
     fetch("http://localhost:3001/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

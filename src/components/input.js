@@ -40,4 +40,5 @@ export const InputLabel = styled.label`
   background-color: white;
   pointer-events: none;
   color: black;
+  font-size: small;
 `;

@@ -13,6 +13,10 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from "./styles/globalStyles";
 
+import SocketIOClient from "socket.io-client";
+
+const socket = SocketIOClient("http://localhost:3001");
+
 const Routes = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -21,9 +25,34 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/create" component={Create} />
-        <Route exact path="/join" component={Join} />
-        <Route exact path="/call" component={Call} />
+        <Route
+          exact
+          path="/create"
+          component={({ history }) => (
+            <Create socket={socket} history={history} />
+          )}
+        />
+        <Route
+          exact
+          path="/join/:id"
+          component={({ history, match }) => (
+            <Join socket={socket} history={history} match={match} />
+          )}
+        />
+        <Route
+          exact
+          path="/join"
+          component={({ history }) => (
+            <Join socket={socket} history={history} />
+          )}
+        />
+        <Route
+          exact
+          path="/call"
+          component={({ history }) => (
+            <Call socket={socket} history={history} />
+          )}
+        />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
       </Switch>

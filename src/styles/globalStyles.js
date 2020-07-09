@@ -5,7 +5,9 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
             Cantarell, Fira Sans, sans-serif;
-        ${"" /* background-image: url("./whatsapplight.png"); */}
+            overflow: hidden;
+        color: black;
+        
     }
     * {
         box-sizing: border-box;
@@ -16,3 +18,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default GlobalStyles;
+
+//font-family: Lato, Helvetica, Arial;;
+
+// ${"" /* background-image: url("./whatsapplight.png"); */}

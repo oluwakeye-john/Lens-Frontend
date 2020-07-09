@@ -1,67 +1,56 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Button from "../components/button";
 
 const HomeContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  height: 90vh;
-  align-items: center;
-
-  max-width: 750px;
-  margin: 0 auto;
-`;
-
-const HomeItem = styled(Link)`
-  text-align: center;
-  transition: 0.2s;
-  &:hover {
-    transform: scale(1.05);
-  }
-  cursor: pointer;
-  text-decoration: none;
-
-  span {
-    transition: 0.3s;
-  }
-
-  &:hover span {
-    transform: rotate(90deg);
-  }
-`;
-
-const HomeItemImage = styled.div`
-  background-color: ${({ theme }) => theme.primaryColor1};
-  padding: 1.5rem 2.5rem;
-  border-radius: 25px;
-  color: white;
-`;
-
-const HomeItemImage2 = styled(HomeItemImage)`
-  background-color: ${({ theme }) => theme.primaryColor2};
-`;
-
-const HomeItemText = styled.h4`
   margin-top: 10px;
-  margin: 0;
-  font-weight: 450;
+  height: 85vh;
+  align-items: center;
+  background-color: #fff;
+  text-align: center;
+`;
+// 282c34
+const MainHeadingIcon = styled.span`
+  color: ${({ theme }) => theme.primaryColor1};
+  margin-right: 20px;
 `;
 
-const Home = () => {
+const MainHeading = styled.h1`
+  font-size: 4rem;
+  margin: 0;
+  font-family: cursive;
+`;
+
+const HomeText = styled.p`
+  font-size: 1.5rem;
+`;
+
+const HomeButton = styled(Button)`
+  padding: 0.8rem 1.5rem;
+  border-radius: 3px;
+  font-size: 1rem;
+`;
+
+const Home = ({ history }) => {
+  const handleGetStarted = () => {
+    history.push("/dashboard");
+  };
   return (
     <HomeContainer>
-      <HomeItem to="/create">
-        <HomeItemImage>
-          <span className="fas fa-video fa-2x" />
-          <HomeItemText>New </HomeItemText>
-        </HomeItemImage>
-      </HomeItem>
-      <HomeItem to="/join">
-        <HomeItemImage2>
-          <span className="fas fa-plus fa-2x  " />
-          <HomeItemText>Join</HomeItemText>
-        </HomeItemImage2>
-      </HomeItem>
+      <div>
+        <MainHeading>
+          <MainHeadingIcon className="fas fa-compact-disc fa-spin" />
+          Lens
+        </MainHeading>
+        <HomeText>A video chat application</HomeText>
+        <HomeButton onClick={handleGetStarted}>Get Started</HomeButton>
+        <p style={{ marginTop: "50px" }}>
+          <a href="/">Oluwakeye John</a>
+        </p>
+      </div>
     </HomeContainer>
   );
 };

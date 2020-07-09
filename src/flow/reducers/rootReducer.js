@@ -1,7 +1,15 @@
-import { updateUser, updateIsLoggedIn } from "../actions";
+import {
+  updateUser,
+  updatePatner,
+  updateCallStatus,
+  updateRoomId,
+} from "../actions";
+
 const initialState = {
-  user: {},
-  isLoggedIn: false,
+  user: "",
+  callStatus: "join",
+  patner: null,
+  roomId: null,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -12,10 +20,22 @@ export const rootReducer = (state = initialState, action) => {
         user: action.payload,
       };
 
-    case updateIsLoggedIn:
+    case updateCallStatus:
       return {
         ...state,
-        isLoggedIn: action.payload,
+        callStatus: action.payload,
+      };
+
+    case updatePatner:
+      return {
+        ...state,
+        patner: action.payload,
+      };
+
+    case updateRoomId:
+      return {
+        ...state,
+        roomId: action.payload,
       };
 
     default:
