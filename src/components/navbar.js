@@ -67,6 +67,7 @@ const items = [
     name: "Join",
     icon: "fas fa-sign-in-alt",
     link: "/join",
+    exact: "no",
   },
   {
     name: "Host",
@@ -86,7 +87,7 @@ const Navbar = () => {
       <NavbarLinks>
         {items.map((item, index) => (
           <NavbarItem
-            exact={true}
+            exact={item.exact === "no" ? false : true}
             to={item.link}
             key={index}
             activeStyle={{ color: "#2D8CFF" }}

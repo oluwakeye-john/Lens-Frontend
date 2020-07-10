@@ -33,6 +33,7 @@ export const CallSettings = styled.div`
   flex-flow: row nowrap;
   color: white;
   align-items: center;
+  z-index: 3;
 `;
 
 export const CallOptionItem = styled.div`

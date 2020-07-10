@@ -2,6 +2,11 @@ import React from "react";
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 import Button from "../components/button";
+import {
+  StyledDialogBox,
+  StyledDialogContainer,
+  StyledDialogList,
+} from "../components/StyledDialog";
 
 const HomeContainer = styled.div`
   display: flex;

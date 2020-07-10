@@ -10,6 +10,8 @@ import { updateRoomId, updateCallStatus, updateUser } from "../flow/actions";
 import { saveUsername, readUsername } from "../utils/saveUsername";
 import { generateRoomId } from "../utils/random";
 
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
 const CreateContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -17,8 +19,17 @@ const CreateContainer = styled.div`
   height: 80vh;
 `;
 
+const Copy = styled.span`
+  position: absolute;
+  /* top: 0px; */
+  right: 10px;
+  display: inline;
+  cursor: pointer;
+`;
+
 const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [tempId, setTempId] = useState(generateRoomId());
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -39,8 +50,8 @@ const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
       setErrorMessage(err);
     });
   };
-  const generateNew = (e) => {
-    e.target.value = generateRoomId();
+  const generateNew = () => {
+    setTempId(generateRoomId());
   };
   return (
     <CreateContainer>
@@ -62,12 +73,15 @@ const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
               type="text"
               placeholder=" "
               required
-              value={generateRoomId()}
+              value={tempId}
               name="roomId"
               title="Click to generate new"
               onClick={generateNew}
             />
             <InputLabel>Meeting ID</InputLabel>
+            <CopyToClipboard text={tempId}>
+              <Copy className="fas fa-copy" />
+            </CopyToClipboard>
           </Input>
           <ErrorMessage>{errorMessage}</ErrorMessage>
           <Button type="submit">Create</Button>

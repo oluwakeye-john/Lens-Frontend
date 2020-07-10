@@ -6,7 +6,12 @@ import Button from "../components/button";
 import { ErrorMessage } from "../components/text";
 import { connect } from "react-redux";
 
-import { updateRoomId, updateCallStatus, updateUser } from "../flow/actions";
+import {
+  updateRoomId,
+  updateCallStatus,
+  updateUser,
+  updateCallInfo,
+} from "../flow/actions";
 import { saveUsername, readUsername } from "../utils/saveUsername";
 
 const JoinContainer = styled.div`
@@ -33,6 +38,7 @@ const Join = ({
   setCallStatus,
   setUser,
   match,
+  setCallInfo,
 }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const defLink = match ? (match.params.id ? match.params.id : "") : "";
@@ -41,6 +47,14 @@ const Join = ({
     e.preventDefault();
     const roomId = e.target.roomId.value;
     const username = e.target.username.value;
+    const muteAudio = e.target.muteAudio.checked;
+    const muteVideo = e.target.muteVideo.checked;
+
+    setCallInfo({
+      muteVideo: muteVideo,
+      muteAudio: muteAudio,
+    });
+
     console.log("room id: ", roomId, username);
     socket.emit("join room", roomId, username);
 
@@ -89,11 +103,11 @@ const Join = ({
           </Input>
           <CardExtra>
             <CardCheck>
-              <input type="checkbox" name="mute-audio" />
+              <input type="checkbox" name="muteAudio" />
               Do Not Connect My Audio
             </CardCheck>
             <CardCheck>
-              <input type="checkbox" name="mute-video" />
+              <input type="checkbox" name="muteVideo" />
               Turn off my video
             </CardCheck>
           </CardExtra>
@@ -122,6 +136,12 @@ const mapDispatchToProps = (dispatch) => {
     setUser: (val) =>
       dispatch({
         type: updateUser,
+        payload: val,
+      }),
+
+    setCallInfo: (val) =>
+      dispatch({
+        type: updateCallInfo,
         payload: val,
       }),
   };

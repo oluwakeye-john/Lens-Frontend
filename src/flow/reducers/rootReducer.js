@@ -3,6 +3,7 @@ import {
   updatePatner,
   updateCallStatus,
   updateRoomId,
+  updateCallInfo,
 } from "../actions";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   callStatus: "join",
   patner: null,
   roomId: null,
+  callInfo: {},
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -36,6 +38,12 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         roomId: action.payload,
+      };
+
+    case updateCallInfo:
+      return {
+        ...state,
+        callInfo: action.payload,
       };
 
     default:
