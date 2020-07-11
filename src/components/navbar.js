@@ -64,15 +64,14 @@ const items = [
     link: "/dashboard",
   },
   {
-    name: "Join",
-    icon: "fas fa-sign-in-alt",
-    link: "/join",
-    exact: "no",
-  },
-  {
-    name: "Host",
+    name: "New",
     icon: "fas fa-sign-out-alt",
     link: "/create",
+  },
+  {
+    name: "Help",
+    icon: "fas fa-question",
+    link: "/help",
   },
 ];
 
@@ -90,7 +89,7 @@ const Navbar = () => {
             exact={item.exact === "no" ? false : true}
             to={item.link}
             key={index}
-            activeStyle={{ color: "#2D8CFF" }}
+            activeStyle={{ color: "#0E71EB" }}
           >
             <div className={item.icon} />
             <div>{item.name}</div>

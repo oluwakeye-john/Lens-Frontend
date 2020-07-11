@@ -97,7 +97,7 @@ const Join = ({
               placeholder=" "
               required
               name="roomId"
-              value={defLink}
+              defaultValue={defLink}
             />
             <InputLabel>Enter Meeting ID</InputLabel>
           </Input>

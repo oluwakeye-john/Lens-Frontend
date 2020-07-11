@@ -10,7 +10,8 @@ import { updateRoomId, updateCallStatus, updateUser } from "../flow/actions";
 import { saveUsername, readUsername } from "../utils/saveUsername";
 import { generateRoomId } from "../utils/random";
 
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { ToolTip, ToolTipText } from "../components/toolTip";
 
 const CreateContainer = styled.div`
   display: flex;
@@ -19,13 +20,13 @@ const CreateContainer = styled.div`
   height: 80vh;
 `;
 
-const Copy = styled.span`
-  position: absolute;
-  /* top: 0px; */
-  right: 10px;
-  display: inline;
-  cursor: pointer;
-`;
+// const Copy = styled.span`
+//   position: absolute;
+//   /* top: 0px; */
+//   right: 10px;
+//   display: inline;
+//   cursor: pointer;
+// `;
 
 const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -74,14 +75,22 @@ const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
               placeholder=" "
               required
               value={tempId}
+              onChange={() => {}}
+              // readOnly={true}
               name="roomId"
-              title="Click to generate new"
               onClick={generateNew}
             />
             <InputLabel>Meeting ID</InputLabel>
-            <CopyToClipboard text={tempId}>
-              <Copy className="fas fa-copy" />
-            </CopyToClipboard>
+
+            {/* <ToolTip>
+              <CopyToClipboard
+                text={tempId}
+                style={{ display: "absolute", top: "0" }}
+              >
+                <Copy className="fas fa-copy" />
+              </CopyToClipboard>
+              <ToolTipText>Copy</ToolTipText>
+            </ToolTip> */}
           </Input>
           <ErrorMessage>{errorMessage}</ErrorMessage>
           <Button type="submit">Create</Button>

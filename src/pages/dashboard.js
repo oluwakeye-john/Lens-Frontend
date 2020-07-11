@@ -6,7 +6,8 @@ const DashboardContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   height: 90vh;
-  align-items: center;
+  align-content: space-evenly;
+  flex-wrap: wrap;
 
   max-width: 750px;
   margin: 0 auto;
@@ -26,7 +27,7 @@ const DashboardItem = styled(Link)`
   }
 
   &:hover span {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
   }
 `;
 
@@ -35,6 +36,7 @@ const DashboardItemImage = styled.div`
   padding: 1.5rem 2.5rem;
   border-radius: 25px;
   color: white;
+  width: 140px;
 `;
 
 const DashboardItemImage2 = styled(DashboardItemImage)`
@@ -61,6 +63,12 @@ const Dashboard = () => {
           <span className="fas fa-plus fa-2x  " />
           <DashboardItemText>Join</DashboardItemText>
         </DashboardItemImage2>
+      </DashboardItem>
+      <DashboardItem to="/help">
+        <DashboardItemImage>
+          <span className="fas fa-question fa-2x  " />
+          <DashboardItemText>Help</DashboardItemText>
+        </DashboardItemImage>
       </DashboardItem>
     </DashboardContainer>
   );

@@ -10,6 +10,8 @@ const Button = styled.button`
   transition: 0.2s;
   color: white;
 
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
+
   &:hover {
     transform: scale(1.03);
   }

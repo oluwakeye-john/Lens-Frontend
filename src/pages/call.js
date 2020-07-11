@@ -13,6 +13,8 @@ import {
   StyledDialogList,
 } from "../components/StyledDialog";
 
+import { ToolTipRelative, ToolTipTextRelative } from "../components/toolTip";
+
 import { connect } from "react-redux";
 import { updateCallStatus, updateRoomId } from "../flow/actions";
 
@@ -48,7 +50,7 @@ const Call = ({
   const [showInvite, setShowInvite] = useState(false);
   const [showParticipant, setShowParticipant] = useState(false);
 
-  const [patner, setPatner] = useState("Waiting");
+  const [patner, setPatner] = useState("");
 
   let peerConnection;
   let stream;
@@ -149,6 +151,7 @@ const Call = ({
     const remoteVideo = document.querySelector("#remote-video");
     navigator.mediaDevices.getUserMedia(constraints).then((s) => {
       console.log("got stream");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       stream = s;
       localVideo.srcObject = stream;
       localVideo.play();
@@ -184,7 +187,6 @@ const Call = ({
         });
         socket.on("room closed", () => {
           alert("The meeting host has disconnected");
-          history.push("/dashboard");
         });
       }
     });
@@ -209,15 +211,19 @@ const Call = ({
   };
 
   const handleAudioMute = (e) => {
-    setMuteAudio(!muteAudio);
     const localVideo = document.querySelector("#local-video");
-    localVideo.srcObject.getAudioTracks()[0].enabled = muteAudio;
+    if (localVideo.srcObject) {
+      setMuteAudio(!muteAudio);
+      localVideo.srcObject.getAudioTracks()[0].enabled = muteAudio;
+    }
   };
 
   const handleVideoMute = (e) => {
-    setMuteVideo(!muteVideo);
     const localVideo = document.querySelector("#local-video");
-    localVideo.srcObject.getVideoTracks()[0].enabled = muteVideo;
+    if (localVideo.srcObject) {
+      setMuteVideo(!muteVideo);
+      localVideo.srcObject.getVideoTracks()[0].enabled = muteVideo;
+    }
   };
 
   const handleEndCall = () => {
@@ -235,33 +241,52 @@ const Call = ({
   return (
     <div>
       <RemoteVideo autoplay id="remote-video"></RemoteVideo>
-      <LocalVideo autoplay id="local-video" mute title="you"></LocalVideo>
+      <LocalVideo autoplay id="local-video" mute></LocalVideo>
       <CallSettings>
-        <CallOptionItem onClick={handleVideoMute} title="stop video">
-          <div
-            className="fas fa-video fa-1x fa-fw"
-            style={{ color: muteVideo ? "red" : "" }}
-          />
-        </CallOptionItem>
+        <ToolTipRelative>
+          <CallOptionItem onClick={handleVideoMute}>
+            <div
+              className="fas fa-video fa-1x fa-fw"
+              style={{ color: muteVideo ? "red" : "" }}
+            />
+          </CallOptionItem>
+          <ToolTipTextRelative>
+            {muteVideo ? "Start" : "Stop"} Video
+          </ToolTipTextRelative>
+        </ToolTipRelative>
 
-        <CallOptionItem title="Invite" onClick={handleInvite}>
-          <div className="fas fa-plus-circle fa-1x fa-fw" />
-        </CallOptionItem>
+        <ToolTipRelative>
+          <CallOptionItem onClick={handleInvite}>
+            <div className="fas fa-plus-circle fa-1x fa-fw" />
+          </CallOptionItem>
+          <ToolTipTextRelative>Invite</ToolTipTextRelative>
+        </ToolTipRelative>
 
-        <CallOptionItem onClick={handleAudioMute} title="mute audio">
-          <div
-            className="fas fa-microphone fa-1x fa-fw"
-            style={{ color: muteAudio ? "red" : "" }}
-          />
-        </CallOptionItem>
+        <ToolTipRelative>
+          <CallOptionItem onClick={handleAudioMute}>
+            <div
+              className="fas fa-microphone fa-1x fa-fw"
+              style={{ color: muteAudio ? "red" : "" }}
+            />
+          </CallOptionItem>
+          <ToolTipTextRelative>
+            {muteAudio ? "Start" : "Stop"} Audio
+          </ToolTipTextRelative>
+        </ToolTipRelative>
 
-        <CallOptionItem title="participants" onClick={handleParticipant}>
-          <div className="fas fa-users fa-1x fa-fw" />
-        </CallOptionItem>
+        <ToolTipRelative>
+          <CallOptionItem onClick={handleParticipant}>
+            <div className="fas fa-users fa-1x fa-fw" />
+          </CallOptionItem>
+          <ToolTipTextRelative>Participants</ToolTipTextRelative>
+        </ToolTipRelative>
 
-        <CallOptionItem onClick={handleEndCall} title="end call">
-          <div className="fas fa-times fa-1x fa-fw" />
-        </CallOptionItem>
+        <ToolTipRelative>
+          <CallOptionItem onClick={handleEndCall}>
+            <div className="fas fa-times fa-1x fa-fw" />
+            <ToolTipTextRelative>End Call</ToolTipTextRelative>
+          </CallOptionItem>
+        </ToolTipRelative>
       </CallSettings>
 
       <div
@@ -288,6 +313,7 @@ const Call = ({
                 </a>
               </p>
               <CopyToClipboard text={roomLink}>
+                {/*eslint-disable-next-line */}
                 <a href="#">Copy Link</a>
               </CopyToClipboard>
             </StyledDialogList>
