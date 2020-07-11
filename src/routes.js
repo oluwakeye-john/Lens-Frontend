@@ -15,7 +15,12 @@ import GlobalStyles from "./styles/globalStyles";
 import SocketIOClient from "socket.io-client";
 import Preloader from "./components/preloader";
 
-const socket = SocketIOClient("http://localhost:3001");
+const apiUrl = process.env.REACT_APP_API_URL;
+console.log("API URL: ", apiUrl);
+if (!apiUrl) {
+  console.log("Error: API URL not found");
+}
+const socket = SocketIOClient(apiUrl);
 
 const Routes = () => {
   const [isPaired, setIsPaired] = useState(false);

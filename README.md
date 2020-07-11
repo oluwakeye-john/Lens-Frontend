@@ -10,18 +10,6 @@ Demo
 
 Backend is at https://github.com/oluwakeye-john/Lens-Api
 
-## Install
-
-- Clone this repo
-- run the following
-
-```shell
-    npm install
-    npm start
-```
-
-Make sure the backend is running
-
 ## Feature
 
 This project is a video chat application that establishes video sharing between two clients.
@@ -33,6 +21,23 @@ This project is a video chat application that establishes video sharing between 
 - Node JS
 - Web RTC
 - Styled Components
+
+## Install
+
+- Clone this repo
+- Change the REACT_API_URL_API in the `.env.local` to whatever url your backend is running on
+- run the following
+
+```shell
+    npm install
+    npm start
+```
+
+Make sure the backend is running
+
+## Deployment
+
+When deploying, do not forget to add REACT_APP_API_URL to the enviromental variables of your deployment platform.
 
 ## License
 
