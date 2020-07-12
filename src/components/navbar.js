@@ -9,6 +9,8 @@ const NavbarContainer = styled.div`
   box-shadow: 0 0 10px #e5e5e8;
   font-size: small;
   position: sticky;
+  top: 0;
+  left: 0;
 `;
 
 const NavbarHeader = styled.div`
@@ -87,7 +89,7 @@ const Navbar = () => {
             exact={item.exact === "no" ? false : true}
             to={item.link}
             key={index}
-            activeStyle={{ color: "#f26d21" }}
+            activeStyle={{ color: "#dc3545" }}
           >
             <div className={item.icon} />
             <div>{item.name}</div>

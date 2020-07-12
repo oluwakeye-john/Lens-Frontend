@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const PreloaderContainer = styled.div`
   display: flex;
-  height: 85vh;
+  height: 70vh;
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.primaryColor1};
