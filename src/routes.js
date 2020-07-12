@@ -23,7 +23,7 @@ if (!apiUrl) {
 const socket = SocketIOClient(apiUrl);
 
 const Routes = () => {
-  const [isPaired, setIsPaired] = useState(false);
+  const [isPaired, setIsPaired] = useState(true);
   socket.on("paired", () => {
     setIsPaired(true);
   });

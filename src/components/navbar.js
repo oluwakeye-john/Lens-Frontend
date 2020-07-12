@@ -7,9 +7,8 @@ const NavbarContainer = styled.div`
   flex-flow: row nowrap;
   background-color: #fff;
   box-shadow: 0 0 10px #e5e5e8;
-  /* border-bottom: 1px solid #e5e5e8; */
   font-size: small;
-  /* margin-bottom: 10px; */
+  position: sticky;
 `;
 
 const NavbarHeader = styled.div`
@@ -21,12 +20,11 @@ const NavbarHeader = styled.div`
 `;
 
 const NavbarHeaderText = styled.h1`
-  /* color: white; */
   text-decoration: none;
   margin: 0;
   padding: 0;
   font-style: italic;
-  font-family: cursive;
+  font-family: ${({ theme }) => theme.labelFont};
 `;
 
 const NavbarLinks = styled.div`
@@ -53,7 +51,7 @@ const NavbarItem = styled(NavLink)`
   }
 
   @media (max-width: 768px) {
-    margin: 10px 0;
+    margin: 20px 0;
   }
 `;
 
@@ -89,7 +87,7 @@ const Navbar = () => {
             exact={item.exact === "no" ? false : true}
             to={item.link}
             key={index}
-            activeStyle={{ color: "#0E71EB" }}
+            activeStyle={{ color: "#f26d21" }}
           >
             <div className={item.icon} />
             <div>{item.name}</div>

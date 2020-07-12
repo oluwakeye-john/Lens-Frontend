@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+// import Bck from "../whatsapplight.png";
 
 const GlobalStyles = createGlobalStyle`
     body{
         margin: 0;
         font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
             Cantarell, Fira Sans, sans-serif;
-            overflow: hidden;
         color: black;
-        
+        ${"" /* background-image: url("${Bck}"); */}
     }
     * {
         box-sizing: border-box;
@@ -16,9 +16,7 @@ const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.primaryColor1};
     }
 `;
-
+// overflow: hidden;
 export default GlobalStyles;
 
 //font-family: Lato, Helvetica, Arial;;
-
-// ${"" /* background-image: url("./whatsapplight.png"); */}

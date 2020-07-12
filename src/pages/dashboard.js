@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Card } from "../components/card";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const DashboardContainer = styled.div`
 
   max-width: 750px;
   margin: 0 auto;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const DashboardItem = styled(Link)`
@@ -24,6 +29,7 @@ const DashboardItem = styled(Link)`
 
   span {
     transition: 0.3s;
+    opacity: 0.9;
   }
 
   &:hover span {
@@ -31,44 +37,39 @@ const DashboardItem = styled(Link)`
   }
 `;
 
+const DashboardItemBox = styled(Card)`
+  text-align: center;
+  width: 18rem;
+`;
+
 const DashboardItemImage = styled.div`
-  background-color: ${({ theme }) => theme.primaryColor1};
-  padding: 1.5rem 2.5rem;
-  border-radius: 25px;
-  color: white;
-  width: 140px;
+  color: ${({ theme }) => theme.primaryColor1};
 `;
 
-const DashboardItemImage2 = styled(DashboardItemImage)`
-  background-color: ${({ theme }) => theme.primaryColor2};
-`;
-
-const DashboardItemText = styled.h4`
+const DashboardItemText = styled.p`
   margin-top: 10px;
-  margin: 0;
-  font-weight: 450;
 `;
 
 const Dashboard = () => {
   return (
     <DashboardContainer>
       <DashboardItem to="/create">
-        <DashboardItemImage>
-          <span className="fas fa-video fa-2x" />
-          <DashboardItemText>New </DashboardItemText>
-        </DashboardItemImage>
+        <DashboardItemBox>
+          <DashboardItemImage className="fas fa-video fa-3x" />
+          <DashboardItemText>Host a new call </DashboardItemText>
+        </DashboardItemBox>
       </DashboardItem>
       <DashboardItem to="/join">
-        <DashboardItemImage2>
-          <span className="fas fa-plus fa-2x  " />
-          <DashboardItemText>Join</DashboardItemText>
-        </DashboardItemImage2>
+        <DashboardItemBox>
+          <DashboardItemImage className="fas fa-plus fa-3x  " />
+          <DashboardItemText>Join a call</DashboardItemText>
+        </DashboardItemBox>
       </DashboardItem>
       <DashboardItem to="/help">
-        <DashboardItemImage>
-          <span className="fas fa-question fa-2x  " />
-          <DashboardItemText>Help</DashboardItemText>
-        </DashboardItemImage>
+        <DashboardItemBox>
+          <DashboardItemImage className="fas fa-question fa-3x  " />
+          <DashboardItemText>Get Help</DashboardItemText>
+        </DashboardItemBox>
       </DashboardItem>
     </DashboardContainer>
   );

@@ -7,6 +7,11 @@ const PreloaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.primaryColor1};
+  text-align: center;
+`;
+
+const PreloaderText = styled.p`
+  color: black;
 `;
 
 const Preloader = () => {
@@ -17,6 +22,7 @@ const Preloader = () => {
           className="fas fa-compact-disc fa-spin fa-2x"
           style={{ fontSize: "4rem" }}
         />
+        <PreloaderText>Waiting for API...</PreloaderText>
       </div>
     </PreloaderContainer>
   );

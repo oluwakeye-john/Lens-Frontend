@@ -10,23 +10,12 @@ import { updateRoomId, updateCallStatus, updateUser } from "../flow/actions";
 import { saveUsername, readUsername } from "../utils/saveUsername";
 import { generateRoomId } from "../utils/random";
 
-// import { CopyToClipboard } from "react-copy-to-clipboard";
-// import { ToolTip, ToolTipText } from "../components/toolTip";
-
 const CreateContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
 `;
-
-// const Copy = styled.span`
-//   position: absolute;
-//   /* top: 0px; */
-//   right: 10px;
-//   display: inline;
-//   cursor: pointer;
-// `;
 
 const Create = ({ socket, history, setRoomId, setCallStatus, setUser }) => {
   const [errorMessage, setErrorMessage] = useState("");

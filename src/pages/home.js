@@ -1,38 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../components/button";
+import Bg1 from "../bg1.jpg";
 
 const HomeContainer = styled.div`
+  height: 70vh;
+  text-align: left;
+  background-image: url(${Bg1});
+  background-position: center;
+  background-size: cover;
+  color: black;
+
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  height: 85vh;
+  justify-content: center;
   align-items: center;
-  background-color: #fff;
-  text-align: center;
 `;
-// 282c34
-const MainHeadingIcon = styled.span`
-  color: ${({ theme }) => theme.primaryColor1};
-  margin-right: 20px;
+
+const HeadingBox = styled.div`
+  padding: 2rem;
 `;
 
 const MainHeading = styled.h1`
   font-size: 4rem;
+`;
+
+const MainHeadingText = styled.h5`
   margin: 0;
-  font-family: cursive;
+  font-size: 2rem;
 `;
 
-const HomeText = styled.p`
-  font-size: 1.5rem;
-`;
-
-const HomeButton = styled(Button)`
-  padding: 0.8rem 1.5rem;
-  border-radius: 3px;
-  font-size: 1rem;
-`;
+const HomeButton = styled(Button)``;
 
 const Home = ({ history }) => {
   const handleGetStarted = () => {
@@ -40,17 +38,11 @@ const Home = ({ history }) => {
   };
   return (
     <HomeContainer>
-      <div>
-        <MainHeading>
-          <MainHeadingIcon className="fas fa-compact-disc fa-spin" />
-          Lens
-        </MainHeading>
-        <HomeText>A video chat application</HomeText>
-        <HomeButton onClick={handleGetStarted}>Get Started</HomeButton>
-        <p style={{ marginTop: "50px" }}>
-          <a href="/">Oluwakeye John</a>
-        </p>
-      </div>
+      <HeadingBox>
+        <MainHeading>Hello world</MainHeading>
+        <MainHeadingText>I'm Jarvis</MainHeadingText>
+        <HomeButton>Get Started</HomeButton>
+      </HeadingBox>
     </HomeContainer>
   );
 };

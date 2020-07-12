@@ -7,7 +7,7 @@ const HelpContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
 `;
 
 const HelpCard = styled(Card)`
@@ -20,6 +20,7 @@ const StyledNumber = styled.div`
   line-height: 40px;
   background-color: ${({ theme }) => theme.primaryColor1};
   color: white;
+  display: inline-block;
 `;
 
 const StepText = styled.p`
@@ -28,15 +29,15 @@ const StepText = styled.p`
 `;
 
 const steps = [
-  "Visit the dashboard and click 'new call'.  This will take you to the 'create page'",
-  "A meeting ID will be automatically generated for you. It is read-only",
-  "To generate a new ID, tap on the current meeting ID box",
-  "Input your name (This will be shown to anyone you are calling)",
-  "Click 'create'. MAKE SURE YOU ACCEPT THE PERMISSION BOX.",
-  "On the Call Page, tap the invite(plus) button to add new participants.",
-  "You can send the link via WhatsApp, Twitter or copy and then share it",
-  "To join a call, simply click the invite link sent to you and then input your name",
-  "Click 'join'. Again, MAKE SURE YOU ACCEPT THE PERMISSION BOX.",
+  "Visit the dashboard and click 'new call'.  This will take you to the 'create page'. ",
+  "A meeting ID will be automatically generated for you. It is read-only. ",
+  "To generate a new ID, tap on the current meeting ID box. ",
+  "Input your name (This will be shown to anyone you are calling). ",
+  "Click 'create'. MAKE SURE YOU ACCEPT THE PERMISSION BOX. ",
+  "On the Call Page, tap the invite(plus) button to add new participants. ",
+  "You can send the link via WhatsApp, Twitter or copy and then share it. ",
+  "To join a call, simply click the invite link sent to you and then input your name. ",
+  "Click 'join'. Again, MAKE SURE YOU ACCEPT THE PERMISSION BOX. ",
   "And,... Voila, you're in..",
 ];
 

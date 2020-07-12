@@ -74,7 +74,6 @@ const Call = ({
 
     peerConnection.ontrack = (event) => {
       remoteVideo.srcObject = event.streams[0];
-      remoteVideo.play();
     };
 
     peerConnection
@@ -111,7 +110,6 @@ const Call = ({
 
     peerConnection.ontrack = (event) => {
       remoteVideo.srcObject = event.streams[0];
-      remoteVideo.play();
     };
 
     peerConnection
@@ -154,7 +152,6 @@ const Call = ({
       // eslint-disable-next-line react-hooks/exhaustive-deps
       stream = s;
       localVideo.srcObject = stream;
-      localVideo.play();
       localVideo.muted = true;
       setInitialCallInfo();
 
@@ -240,8 +237,8 @@ const Call = ({
 
   return (
     <div>
-      <RemoteVideo autoplay id="remote-video"></RemoteVideo>
-      <LocalVideo autoplay id="local-video" mute></LocalVideo>
+      <RemoteVideo autoPlay id="remote-video"></RemoteVideo>
+      <LocalVideo autoPlay id="local-video" mute></LocalVideo>
       <CallSettings>
         <ToolTipRelative>
           <CallOptionItem onClick={handleVideoMute}>
