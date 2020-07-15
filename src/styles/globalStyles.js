@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
             Cantarell, Fira Sans, sans-serif;
         color: black;
+        scroll-behavior: smooth;
         ${"" /* background-image: url("${Bck}"); */}
     }
     * {

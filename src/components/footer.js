@@ -12,7 +12,16 @@ const Footer = () => {
   return (
     <FooterContainer>
       <p>&copy; {new Date().getFullYear()}</p>
-      <p>By Oluwakeye John</p>
+      <p>
+        <a
+          href="https://twitter.com/oluwakeyejohn"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit" }}
+        >
+          By Oluwakeye John
+        </a>
+      </p>
     </FooterContainer>
   );
 };

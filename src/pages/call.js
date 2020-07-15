@@ -5,6 +5,7 @@ import {
   RemoteVideo,
   CallOptionItem,
   CallSettings,
+  CallContainer,
 } from "../components/call-styles";
 
 import {
@@ -141,6 +142,7 @@ const Call = ({
   };
 
   useEffect(() => {
+    document.querySelector("body").style.overflow = "hidden";
     if (!roomId) {
       history.push("/create");
       return;
@@ -189,6 +191,7 @@ const Call = ({
     });
 
     return () => {
+      document.querySelector("body").style.overflow = "visible";
       endStream();
     };
   }, []);
@@ -236,7 +239,7 @@ const Call = ({
   };
 
   return (
-    <div>
+    <CallContainer style={{ zIndex: "4" }}>
       <RemoteVideo autoPlay id="remote-video"></RemoteVideo>
       <LocalVideo autoPlay id="local-video" mute></LocalVideo>
       <CallSettings>
@@ -334,7 +337,7 @@ const Call = ({
           </StyledDialogBox>
         </StyledDialogContainer>
       </div>
-    </div>
+    </CallContainer>
   );
 };
 

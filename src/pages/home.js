@@ -52,12 +52,12 @@ const HomeButton = styled(Button)`
 const ServiceList = styled.div`
   display: flex;
   justify-content: space-evenly;
-  flex-flow: row unwrap;
+  flex-flow: row wrap;
   align-items: center;
   align-content: space-evenly;
   width: 100%;
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -65,7 +65,7 @@ const ServiceList = styled.div`
 const ServiceCard = styled(Card)`
   width: 20%;
   text-align: center;
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     width: 80%;
     margin-bottom: 2rem;
   }
@@ -91,11 +91,16 @@ const Home = ({ history }) => {
       </HomeLanding>
 
       <Service>
-        <h1>🔭Our Services</h1>
+        <h1>
+          <span role="img" aria-label="service icon">
+            🔭
+          </span>
+          Why Lens?
+        </h1>
         <ServiceList>
           <ServiceCard>
             <ServiceCardHeading>Easy</ServiceCardHeading>
-            <p>No sign-up or login required... </p>
+            <p>No sign-up/login required... </p>
           </ServiceCard>
           <ServiceCard>
             <ServiceCardHeading>Safe</ServiceCardHeading>

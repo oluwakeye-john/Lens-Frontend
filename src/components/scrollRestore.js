@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 
 const ScrollRestore = ({ children }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behaviour: "smooth",
+    });
   });
   return <>{children}</>;
 };

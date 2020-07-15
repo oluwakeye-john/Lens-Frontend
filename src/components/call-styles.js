@@ -54,3 +54,10 @@ export const CallOptionItem = styled.div`
 export const CallOptionItemText = styled.div`
   text-align: center;
 `;
+
+export const CallContainer = styled.div`
+  z-index: 2;
+  * {
+    overflow: hidden;
+  }
+`;

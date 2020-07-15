@@ -11,6 +11,7 @@ const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 2;
 `;
 
 const NavbarHeader = styled.div`

@@ -10,7 +10,7 @@ export const StyledDialogContainer = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 4;
 `;
 
 export const StyledDialogBox = styled(Card)`
